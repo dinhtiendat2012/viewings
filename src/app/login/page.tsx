@@ -6,7 +6,9 @@ export default function LoginPage() {
     <div>
       <Header />
       <div className="loginBg">
-        <div className="loginForm">1</div>
+        <div className="loginForm">
+          Xin chào ,bạn vào link này có nghĩa là bạn công nhận Đạt đẹp trai !
+        </div>
       </div>
     </div>
   );
