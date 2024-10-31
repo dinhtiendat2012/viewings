@@ -10,11 +10,7 @@ import { GetSetToken } from "@/app/types/GetSetToken";
 import { useUser } from "@/components/ui/UserContext";
 // import { setUserCookie } from "@/app/api/server";
 
-interface LoginPageProps {
-  setUser: (user: User | null) => void;
-}
-
-const LoginPage: React.FC<LoginPageProps> = () => {
+const LoginPage = () => {
   const { user, setUser } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
