@@ -1,0 +1,64 @@
+.friendOn {
+  background-color: antiquewhite;
+  border: 2px solid burlywood;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 100px;
+}
+.avatarFri {
+  border: 1px solid black;
+  border-radius: 50px;
+  margin: 5px;
+  align-content: center;
+  min-width: 30px;
+  min-height: 30px;
+  width: 10%;
+  height: 10%;
+}
+.nameFri {
+  margin: 5px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  min-width: 100px;
+  width: 80%;
+  align-content: center;
+}
+.friendStatus {
+  justify-content: center;
+  align-content: center;
+  width: 10%;
+  min-width: 10px;
+  margin: auto;
+}
+
+input[type="radio"] {
+  appearance: none; /* Remove the default styling */
+  width: 16px; /* Set width (smaller size) */
+  height: 16px; /* Set height (smaller size) */
+  border: 2px solid #4caf50; /* Green border */
+  border-radius: 50%; /* Make it round */
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
+}
+
+input[type="radio"]:checked {
+  background-color: #4caf50; /* Green background when checked */
+  border-color: #4caf50; /* Keep the green border when checked */
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 8px; /* Adjust this for the inner dot size */
+  height: 8px; /* Inner dot size */
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+}

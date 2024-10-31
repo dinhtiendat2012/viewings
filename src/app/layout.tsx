@@ -1,14 +1,22 @@
+// import api from "@/app/api/api";
+"use client";
 import "./globals.css";
-
-export default function RootLayout({
-  children,
-}: Readonly<{
+import { Header } from "@/components/ui/Header";
+import { UserProvider } from "@/components/ui/UserContext";
+interface LayoutProps {
   children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <head></head>
-      <body>{children}</body>
-    </html>
-  );
 }
+
+const RootLayout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <UserProvider>
+      <html>
+        <body>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </UserProvider>
+  );
+};
+export default RootLayout;

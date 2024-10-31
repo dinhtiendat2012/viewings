@@ -1,30 +1,34 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import React, { useState } from "react";
-import "@/app/login/login.css";
+import React, { useEffect, useState } from "react";
+import "@/app/register/register.css";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { User } from "@/app/types/Object";
 import { GetUserLogined } from "@/app/types/GetUserLogined";
+import { Profile, User } from "@/app/types/Object";
+import { AddUser } from "@/app/types/AddUser";
+import { AddProfile } from "@/app/types/AddProfile";
 import { GetSetToken } from "@/app/types/GetSetToken";
-import { useUser } from "@/components/ui/UserContext";
 // import { setUserCookie } from "@/app/api/server";
 
-interface LoginPageProps {
-  setUser: (user: User | null) => void;
-}
-
-const LoginPage: React.FC<LoginPageProps> = () => {
-  const { user, setUser } = useUser();
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  if (user) {
-    router.push("/profile");
-  }
+  // Kiểm tra trạng thái đăng nhập khi trang được tải
+  useEffect(() => {
+    // Kiểm tra token trong localStorage
+    GetUserLogined()
+      .then(() => {
+        // Nếu đã đăng nhập, chuyển hướng về trang profile
+        router.push("/profile");
+      })
+      .catch(() => {});
+  }, []);
 
   const HandleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -35,24 +39,35 @@ const LoginPage: React.FC<LoginPageProps> = () => {
       userId: 0,
       email: "" + email,
       password: "" + password,
-      status: "",
-      roleId: 0,
+      status: "Offline",
+      roleId: 2,
     };
 
-    GetSetToken(user)
-      .then(() => {
-        setLoading(false);
-        GetUserLogined().then((u) => {
-          setUser(u);
-        });
-        alert("Login successful !");
-        router.push("/profile");
-        return;
+    AddUser(user)
+      .then((userId: number) => {
+        const profile: Profile = {
+          userId: userId,
+          name: name,
+          address: "",
+          dob: new Date(),
+          linkAvt: "",
+          phone: "",
+          profileId: 0,
+        };
+        AddProfile(profile)
+          .then(() => {
+            GetSetToken(user);
+            router.push("/profile");
+          })
+          .catch(() => {
+            setError("Register fail!");
+          });
       })
       .catch(() => {
+        setError("Register fail!");
+      })
+      .finally(() => {
         setLoading(false);
-        setError("Login failed !");
-        return;
       });
   };
 
@@ -60,16 +75,27 @@ const LoginPage: React.FC<LoginPageProps> = () => {
     <div className="background flex justify-center min-h-screen h-auto">
       <form className="loginForm" onSubmit={HandleSubmit}>
         <br />
-        <div className="title">Login</div>
+        <div className="title">Register</div>
         <br />
         <div className="flex">
           <div className="w-1/4">
+            <div className="inputTitle">Name :</div>
+            <br />
             <div className="inputTitle">Email :</div>
             <br />
             <div className="inputTitle">Password :</div>
             <br />
           </div>
           <div className="w-2/3">
+            <Input
+              name="name"
+              type="text"
+              placeholder="Enter name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <br />
             <Input
               name="email"
               type="email"
@@ -96,12 +122,11 @@ const LoginPage: React.FC<LoginPageProps> = () => {
           <br />
           <div className="flex justify-center">
             <Button type="submit" variant="outline" disabled={loading}>
-              {loading ? "Loading..." : "Login"}
+              {loading ? "Loading..." : "Register"}
             </Button>
           </div>
         </div>
       </form>
     </div>
   );
-};
-export default LoginPage;
+}

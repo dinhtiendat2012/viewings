@@ -1,0 +1,12 @@
+.notiCard {
+  background-color: antiquewhite;
+  border: 2px solid burlywood;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 3px;
+  word-wrap: break-word;
+  min-width: 100px;
+}

@@ -1,0 +1,107 @@
+.detailUpPost {
+  width: 100%;
+  padding: auto;
+  margin: 5px;
+  flex-direction: column;
+}
+.avatar-name-Post {
+  display: flex;
+  width: 70%;
+}
+.headerPost {
+  display: flex;
+  justify-content: space-between;
+}
+.postBg {
+  justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #fffae5;
+  border: 3px solid rgb(207, 152, 31);
+  border-radius: 50px;
+  min-width: 700px;
+  width: 100%;
+  height: auto;
+  margin: 5px 10px 5px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.share {
+  border-radius: 25px;
+}
+.cmt {
+  border-radius: 25px;
+}
+.love {
+  border-radius: 25px;
+}
+.avatarPost {
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 50px;
+  margin: 5px;
+}
+.permissionPosted {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px dashed brown;
+  border-radius: 20px;
+  padding: 5px;
+  margin-right: 5%;
+}
+
+.cmtPost {
+  justify-content: center;
+  padding: 5px;
+  background-color: #fffae5;
+  border: 2px solid rgb(207, 152, 31);
+  border-radius: 10px;
+  min-width: 700px;
+  width: 100%;
+  height: auto;
+  margin: 0px 10px 5px 10px;
+}
+.partMain {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.title-cmtPost {
+  padding: 4px 12px;
+}
+.input-cmtPost {
+  border: none;
+  outline: none;
+  background-color: #fffae5;
+  width: 100%;
+}
+.upCmtBox {
+  display: flex;
+  padding: 0px 10px 0px 10px;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  border-radius: 25px;
+  margin: 3px;
+  border: 2px solid brown;
+}
+.text-act {
+  padding-left: 5px;
+}
+.cmtReply {
+  justify-content: center;
+  padding: 5px;
+  background-color: #fffae5;
+  border: 2px dashed rgb(207, 152, 31);
+  border-radius: 10px;
+  width: 88%;
+  height: auto;
+  margin: 0px 20px 5px 10%;
+}
+.btn-dropdown {
+  align-items: center;
+  display: flex;
+}

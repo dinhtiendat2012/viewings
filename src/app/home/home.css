@@ -1,0 +1,108 @@
+.upPostBg {
+  background-color: #fffae5;
+  border: 3px solid rgb(207, 152, 31);
+  border-radius: 50px;
+  min-width: 700px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  align-items: center;
+}
+.avatar {
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 50px;
+  margin: 5px;
+}
+.name_time_UpPost {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  min-width: 10%;
+  max-width: 40%;
+}
+.name {
+  height: 50%;
+  font-size: 20px;
+  font-weight: bold;
+}
+.permission {
+  font-size: 15px;
+  height: 50%;
+  background-color: #fffae5;
+  border: 3px solid burlywood;
+  border-radius: 25px;
+  width: auto;
+}
+.hr {
+  justify-content: center;
+  margin: 5px 30px 5px 30px;
+}
+.detailUpPost {
+  width: 90%;
+  padding-left: 3%;
+  padding-right: 7%;
+}
+.react {
+  justify-content: space-evenly;
+}
+.icon_react {
+  padding-right: 8px;
+  width: 30px;
+  height: 30px;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.actBox {
+  display: flex;
+  padding: 0px 10px 0px 10px;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border-radius: 25px;
+  margin: 3px;
+}
+.upload {
+  border: 4px solid wheat;
+  border-radius: 10px;
+  margin: 2% 5% 2% 0%;
+  padding: 0px 5px 0px 5px;
+}
+/* Tạo animation nhấp nháy */
+@keyframes blink {
+  0% {
+    background-color: #fffae5;
+  } /* Màu nền ban đầu */
+  20% {
+    background-color: burlywood;
+  } /* Màu nền nhấp nháy */
+  100% {
+    background-color: #fffae5;
+  } /* Quay lại màu nền ban đầu */
+}
+
+/* Hiệu ứng hover */
+.actBox:hover,
+.upload:hover {
+  animation: blink 1s; /* Lặp lại animation nhấp nháy */
+}
+.headUpPost {
+  display: flex;
+  justify-content: space-between;
+}
+.avatar-name-UpPost {
+  display: flex;
+  width: 70%;
+}
